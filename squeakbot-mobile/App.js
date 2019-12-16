@@ -1,14 +1,26 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>SqueakBot Mobile Version!</Text>
-      <Button title="Signup" onPress={() => console.log('login')}/>
+      <Image 
+        style={{width: 270, height: 270}}
+        source={require('./assets/bot-pic.png')}
+      />
+      <TextInput
+        placeholder="email"
+      />
+        <TextInput
+        placeholder="password"
+      />
+      <Button title="Login" onPress={() => console.log('login')}/>
+      <Button title="Signup" onPress={() => console.log('signup')}/>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
