@@ -1,32 +1,20 @@
-import React from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>SqueakBot Mobile Version!</Text>
-      <Image 
-        style={{width: 270, height: 270}}
-        source={require('./assets/bot-pic.png')}
-      />
-      <TextInput
-        placeholder="email"
-      />
-        <TextInput
-        placeholder="password"
-      />
-      <Button title="Login" onPress={() => console.log('login')}/>
-      <Button title="Signup" onPress={() => console.log('signup')}/>
-    </View>
-  );
-}
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import Login from './Views/login';
+import List from './Views/list';
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const MainNavigator = createStackNavigator (
+  {
+    Login: {screen: Login},
+    List: {screen: List}
   },
-});
+  {
+    initialRouteName: 'Login',
+    defaultNavigationOptions: {
+      title: 'Home'
+    }
+  }
+)
+
+export default createAppContainer(MainNavigator);
