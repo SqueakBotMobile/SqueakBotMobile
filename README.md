@@ -8,7 +8,7 @@
 - David Zheng 
 
 ## User Stories (link):
-
+https://docs.google.com/document/d/1V3vHAAr9Et7yx5gxecP3NDVkbyr2nbVjuzlS6bW9Q0Y/edit?usp=sharing
 
 ## About SqueakBotMobile:
 This is a mobile app using React Native that helps the user practice white boarding questions. 
