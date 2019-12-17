@@ -17,9 +17,17 @@ export default class Login extends React.Component {
       />
       <TextInput
         placeholder="email"
+        style={{ 
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1, 
+          padding: '5%' }}
       />
         <TextInput
         placeholder="password"
+        style={{ 
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1, 
+          padding: '5%' }}
       />
       <Button title="Login" onPress={() => navigate('List')}/>
       <Button title="Signup" onPress={() => navigate('Signup')}/>
@@ -34,11 +42,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    // padding: '40%'
   },
   textStyle: {
     fontSize: 30,
-   color: 'teal',
+    color: 'teal',
   },
   image: {
     width: 200,
