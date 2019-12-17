@@ -10,21 +10,21 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
     <View style={styles.container}>
       <Text>Sign Up</Text>
       <TextInput
-        placeholder="enter your email"
+        placeholder="enter email"
         style={{ 
           borderBottomColor: '#000000',
           borderBottomWidth: 1, 
           padding: '10%' }}
       />
       <TextInput
-        placeholder="enter your username"
+        placeholder="enter username"
         style={{ 
           borderBottomColor: '#000000',
           borderBottomWidth: 1,
           padding: '10%' }}
       />
       <TextInput
-        placeholder="enter your password"
+        placeholder="enter password"
         style={{  
           borderBottomColor: '#000000',
           borderBottomWidth: 1, 
@@ -37,7 +37,6 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
           paddingTop: 30
         }}
       />
-      <Button title="Home" onPress={() => navigate('Login')}/>
     </View>
   );
  }

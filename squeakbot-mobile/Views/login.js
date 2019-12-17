@@ -22,7 +22,7 @@ export default class Login extends React.Component {
           borderBottomWidth: 1, 
           padding: '5%' }}
       />
-        <TextInput
+      <TextInput
         placeholder="password"
         style={{ 
           borderBottomColor: '#000000',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView} from 'react-native';
-// import CountDown from 'react-native-countdown-component';
+import ModalExample from '../components/modal';
 
 
 export default (props) => {
@@ -13,6 +13,7 @@ export default (props) => {
       <Button title="Tap to Start Timer" onPress={() => console.log('starting timer')}/>
       <Button title="Tap to see comments" onPress={() => navigate('Comments')}/>
       <Button title="Home" onPress={() => navigate('Login')}/>
+      <ModalExample />
       {/* <CountDown
         until={60 * 10 + 30}
         size={30}
