@@ -1,20 +1,21 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default class Login extends React.Component {
-  static navigationOptions = {
-    title: 'List of questions'
-  };
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-    <View style={styles.container}>
-      <Text>Our Questions</Text>
-      <Button title="Home" onPress={() => navigate('Login')}/>
-    </View>
+export default (props) => {
+  const {navigate} = props.navigation;
+  return (
+  <View style={styles.container}>
+    <Text>Our Questions</Text>
+    <Button title="View Question" onPress={() => navigate('Question')}/>
+    <Button title="Home" onPress={() => navigate('Login')}/>
+  </View>
   );
- }
+
 }
+ 
+
+ 
+
 
 const styles = StyleSheet.create({
   container: {
