@@ -104,10 +104,10 @@ export default class StopWatch extends Component {
  
 const styles = StyleSheet.create({
   MainContainer: {
-    height: 200,
+    height: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   inline: {
     flex: 1,
@@ -115,9 +115,9 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '30%',
-    height: '30%',
-    paddingTop:8,
-    paddingBottom:8,
+    height: '40%',
+    // paddingTop:8,
+    // paddingBottom:8,
     borderRadius:7,
     marginTop: 10,
   },
