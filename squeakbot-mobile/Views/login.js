@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
+import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground } from 'react-native';
 
 export default class Login extends React.Component {
   static navigationOptions = {
@@ -8,35 +8,38 @@ export default class Login extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
+      
     <KeyboardAvoidingView
       style={styles.container}
       behavior="padding"
     >
+      <ImageBackground 
+      source={require('../assets/greygeometric.jpg')}
+      style={styles.background}>
+      
+        <Text>fffff</Text>
+        
       <Image 
-        style={{width: 320, height: 200}}
-        source={require('../assets/mouseboard.jpg')}
+        style={styles.image}
+        source={require('../assets/mouse_only.png')}
         />
         <TextInput
           placeholder="username"
-          style={{ 
-            borderBottomColor: '#000000',
-            // borderBottomWidth: 1, 
-            padding: '5%' }}
+          style={styles.textInput}
         />
         <TextInput
           placeholder="password"
           secureTextEntry={true}
-          style={{ 
-            borderBottomColor: '#000000',
-            // borderBottomWidth: 1, 
-            padding: '5%' 
-            }}
+          style={styles.textInput}
         />
-      <View style={styles.button}>
-        <Button title="Login" onPress={() => navigate('List')}/>
-        <Button title="Signup" onPress={() => navigate('Signup')}/>
-      </View>
-      <View style={{ height: 100 }} />
+        <View style={styles.button}>
+          <Button title="Login" onPress={() => navigate('List')}/>
+          <Button title="Signup" onPress={() => navigate('Signup')}/>
+        </View>
+      
+        <View style={{ height: 100 }} />
+        
+    </ImageBackground>
     </KeyboardAvoidingView>
   );
  }
@@ -45,26 +48,32 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'center',
-    marginTop: 40,
-    justifyContent: 'center',
-    padding: 5
-  },
-  textStyle: {
-    fontSize: 30,
-    color: 'teal',
+    backgroundColor: '#d3d3d3',
+    padding: 20
   },
   image: {
-    width: 320,
-    height:200,
-    resizeMode: 'stretch'
+    width: 140,
+    height: 140,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    marginLeft: 100,
+    marginTop: 100,
+    marginRight: 100
   },
+  textInput: { 
+    borderBottomColor: '#000000', 
+    padding: '5%'
+   },
   button: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20
+  }, 
+  background: {
+    height: '100%',
+    width: '100%',
+    marginBottom: '8%'
   }
 });
 

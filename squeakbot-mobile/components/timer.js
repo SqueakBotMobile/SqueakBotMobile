@@ -35,7 +35,6 @@ class StopWatch extends Component {
     }
 
     start() {
-        // let self = this;
         let timer = setInterval(() => {
             let num = (Number(this.state.milliseconds) + 1).toString();
             let count = this.state.counter;
@@ -61,7 +60,6 @@ class StopWatch extends Component {
 
 
     onButtonStart() {
-
         this.start();
         this.setState({startDisabled: true, stopDisabled: false});
     }
@@ -81,10 +79,6 @@ class StopWatch extends Component {
             milliseconds: '00'
         });
     }
-
-
-
-
     render() {
         return(
             <View>
