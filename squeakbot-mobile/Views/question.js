@@ -1,22 +1,26 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView} from 'react-native';
+import ModalExample from '../components/modal';
+import Timer from '../components/timer';
+
 
 export default (props) => {
-    const {navigate} = props.navigation;
-    return (
-    <KeyboardAvoidingView style={styles.container}>
+  const {navigate} = props.navigation;
+  return (
+    <>
+    <View style={styles.container}>
       <Text>Question Page</Text>
       <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/>
       <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/>
       <Button title="Tap to Start Timer" onPress={() => console.log('starting timer')}/>
-      <Button title="Tap to see comments" onPress={() =>navigate('Comments')}/>
+      <Button title="Tap to see comments" onPress={() => navigate('Comments')}/>
       <Button title="Home" onPress={() => navigate('Login')}/>
-    </KeyboardAvoidingView>
+      <ModalExample />
+    </View>
+    <Timer />
+    </>
   );
 }
-
- 
-
 
 const styles = StyleSheet.create({
   container: {

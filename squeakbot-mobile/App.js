@@ -18,7 +18,7 @@ const MainNavigator = createStackNavigator (
   {
     initialRouteName: 'Login',
     defaultNavigationOptions: {
-      title: 'Home'
+      title: 'SqueakBot'
     }
   }
 )

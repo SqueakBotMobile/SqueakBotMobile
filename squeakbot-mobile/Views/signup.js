@@ -1,20 +1,42 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 
-export default (props) => {
+ export default (props) => {
   const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const {navigate} = props.navigation;
   return (
     <View style={styles.container}>
-      <Text>Sign Up Page</Text>
-      {/* <FormLabel>Username</FormLabel> */}
-      {/* <FormInput onChangeText={setUsername} /> */}
-      {/* <FormValidationMessage>This field is required</FormValidationMessage> */}
-
-      <Button title="Home" onPress={() => navigate('Login')}/>
+      <Text>Sign Up</Text>
+      <TextInput
+        placeholder="enter email"
+        style={{ 
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1, 
+          padding: '10%' }}
+      />
+      <TextInput
+        placeholder="enter username"
+        style={{ 
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1,
+          padding: '10%' }}
+      />
+      <TextInput
+        placeholder="enter password"
+        style={{  
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1, 
+          padding: '10%' }}
+      />
+      <Button 
+        title="create user" 
+        onPress={() => console.log('creating user')}
+        style={{
+          paddingTop: 30
+        }}
+      />
     </View>
   );
  }

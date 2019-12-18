@@ -7,7 +7,6 @@ export default (props) => {
   <View style={styles.container}>
     <Text>Our Questions</Text>
     <Button title="View Question" onPress={() => navigate('Question')}/>
-    <Button title="Home" onPress={() => navigate('Login')}/>
   </View>
   );
 

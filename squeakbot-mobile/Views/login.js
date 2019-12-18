@@ -12,17 +12,27 @@ export default class Login extends React.Component {
       style={styles.container}
       behavior="padding" enabled>
       <Image 
-        style={{width: 200, height: 200}}
-        source={require('../assets/bot-pic.png')}
+        style={{width: 320, height: 200}}
+        source={require('../assets/mouseboard.jpg')}
       />
       <TextInput
-        placeholder="email"
+        placeholder="username"
+        style={{ 
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1, 
+          padding: '5%' }}
       />
-        <TextInput
+      <TextInput
         placeholder="password"
+        style={{ 
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1, 
+          padding: '5%' }}
       />
-      <Button title="Login" onPress={() => navigate('List')}/>
-      <Button title="Signup" onPress={() => navigate('Signup')}/>
+      <View style={styles.button}>
+        <Button title="Login" onPress={() => navigate('List')}/>
+        <Button title="Signup" onPress={() => navigate('Signup')}/>
+      </View>
     </KeyboardAvoidingView>
   );
  }
@@ -33,17 +43,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+    marginTop: 40,
     justifyContent: 'center',
-    // padding: '40%'
   },
   textStyle: {
     fontSize: 30,
-   color: 'teal',
+    color: 'teal',
   },
   image: {
-    width: 200,
+    width: 320,
     height:200,
     resizeMode: 'stretch'
   },
+  button: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20
+  }
 });
 
