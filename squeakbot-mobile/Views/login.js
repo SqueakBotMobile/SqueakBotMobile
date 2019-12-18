@@ -13,10 +13,10 @@ export default class Login extends React.Component {
       behavior="padding" enabled>
       <Image 
         style={{width: 200, height: 200}}
-        source={require('../assets/bot-pic.png')}
+        source={require('../assets/mouseboard.jpg')}
       />
       <TextInput
-        placeholder="email"
+        placeholder="username"
         style={{ 
           borderBottomColor: '#000000',
           borderBottomWidth: 1, 
@@ -29,8 +29,10 @@ export default class Login extends React.Component {
           borderBottomWidth: 1, 
           padding: '5%' }}
       />
-      <Button title="Login" onPress={() => navigate('List')}/>
-      <Button title="Signup" onPress={() => navigate('Signup')}/>
+      <View style={styles.button}>
+        <Button title="Login" onPress={() => navigate('List')}/>
+        <Button title="Signup" onPress={() => navigate('Signup')}/>
+      </View>
     </KeyboardAvoidingView>
   );
  }
@@ -41,6 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+    marginTop: 40,
     justifyContent: 'center',
   },
   textStyle: {
@@ -48,9 +51,15 @@ const styles = StyleSheet.create({
     color: 'teal',
   },
   image: {
-    width: 200,
+    width: 320,
     height:200,
     resizeMode: 'stretch'
   },
+  button: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20
+  }
 });
 
