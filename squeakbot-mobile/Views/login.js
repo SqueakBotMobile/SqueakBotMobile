@@ -13,7 +13,9 @@ export default class Login extends React.Component {
       behavior="padding"
     >
       <Image 
-        style={{width: 320, height: 200}}
+        style={{
+          width: 320, height: 200
+        }}
         source={require('../assets/mouseboard.jpg')}
         />
         <TextInput
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
+    alignItems: 'center',
     marginTop: 40,
     justifyContent: 'center',
     padding: 5

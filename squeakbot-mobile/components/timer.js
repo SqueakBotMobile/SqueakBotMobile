@@ -19,7 +19,6 @@ class StopWatch extends Component {
 
     constructor( props ) {
         super( props );
-
         this.onButtonStart = this.onButtonStart.bind(this);
         this.onButtonStop = this.onButtonStop.bind(this);
         this.onButtonClear = this.onButtonClear.bind(this);
@@ -59,19 +58,16 @@ class StopWatch extends Component {
         this.setState({timer});
     }
 
-
     onButtonStart() {
 
         this.start();
         this.setState({startDisabled: true, stopDisabled: false});
     }
 
-
     onButtonStop() {
         clearInterval(this.state.timer);
         this.setState({startDisabled: false, stopDisabled: true});
     }
-
 
     onButtonClear() {
         this.setState({
@@ -82,25 +78,19 @@ class StopWatch extends Component {
         });
     }
 
-
-
-
     render() {
         return(
             <View>
               <Text>{this.state.minutes}</Text>
-               <Text>{this.state.counter}</Text>
-                <Text>{this.state.milliseconds}</Text>
-{/*                 
-                    <Button title="Start" disabled="disabled"></Button>
-                    <Button title="Stop" disabled="disabled"></Button>
-                    <Button title="Clear" disabled="disabled"></Button>    */}
+              <Text>{this.state.counter}</Text>
+              <Text>{this.state.milliseconds}</Text>                
+              {/* <Button title="Start" disabled="disabled"></Button>
+              <Button title="Stop" disabled="disabled"></Button>
+              <Button title="Clear" disabled="disabled"></Button>    */}
             </View>
         );
     }
 }
-
-
 
 const styles = StyleSheet.create({
     container: {
@@ -122,6 +112,5 @@ const styles = StyleSheet.create({
         right: -50
     }
 });
-
 
 module.exports = StopWatch;
