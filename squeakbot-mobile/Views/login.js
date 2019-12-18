@@ -14,10 +14,8 @@ export default class Login extends React.Component {
       behavior="padding"
     >
       <ImageBackground 
-      source={require('../assets/greygeometric.jpg')}
+      source={require('../assets/darkblue.jpg')}
       style={styles.background}>
-      
-        <Text>fffff</Text>
         
       <Image 
         style={styles.image}
@@ -58,7 +56,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     marginLeft: 100,
     marginTop: 100,
-    marginRight: 100
+    marginRight: 100,
   },
   textInput: { 
     borderBottomColor: '#000000', 
