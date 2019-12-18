@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Dimensions, Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
-// import CountDown from 'react-native-countdown';
-
+import Timer from './timer';
 
 class ModalExample extends Component {
   state = {
@@ -24,7 +23,7 @@ class ModalExample extends Component {
           }}>
           <View 
             style={{
-              backgroundColor:'#00000080',
+              backgroundColor:'rgba(211,211,211,0.5)',
               flex: 0,
               flexDirection: 'row',
               justifyContent: 'center',
@@ -34,22 +33,22 @@ class ModalExample extends Component {
               height: Dimensions.get('window').height * 0.5,
               }}>
             <View>
-              <Text>Timer</Text>
-              {/* <CountDown
-                until={60 * 10 + 30}
-                size={30}
-                onFinish={() => alert('Finished')}
-                digitStyle={{backgroundColor: '#FFF'}}
-                digitTxtStyle={{color: '#1CC625'}}
-                timeToShow={['M', 'S']}
-                timeLabels={{m: 'MM', s: 'SS'}}
-              /> */}
+              <Text
+                style={{
+                  color: 'black'
+                }}>Timer</Text>
+            <Timer />
+            
+              
 
               <TouchableHighlight
                 onPress={() => {
                   this.setModalVisible(!this.state.modalVisible);
                 }}>
-                <Text>Hide Timer</Text>
+                <Text
+                  style={{
+                    color: 'black'
+                  }}>Hide Timer</Text>
               </TouchableHighlight>
             </View>
           </View>
