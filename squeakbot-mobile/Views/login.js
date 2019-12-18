@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
+import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
 
 export default class Login extends React.Component {
   static navigationOptions = {
@@ -8,31 +8,34 @@ export default class Login extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-    <KeyboardAvoidingView 
+    <KeyboardAvoidingView
       style={styles.container}
-      behavior="padding" enabled>
+      behavior="padding"
+    >
       <Image 
         style={{width: 320, height: 200}}
         source={require('../assets/mouseboard.jpg')}
-      />
-      <TextInput
-        placeholder="username"
-        style={{ 
-          borderBottomColor: '#000000',
-          borderBottomWidth: 1, 
-          padding: '5%' }}
-      />
-      <TextInput
-        placeholder="password"
-        style={{ 
-          borderBottomColor: '#000000',
-          borderBottomWidth: 1, 
-          padding: '5%' }}
-      />
+        />
+        <TextInput
+          placeholder="username"
+          style={{ 
+            borderBottomColor: '#000000',
+            borderBottomWidth: 1, 
+            padding: '5%' }}
+        />
+        <TextInput
+          placeholder="password"
+          secureTextEntry={true}
+          style={{ 
+            borderBottomColor: '#000000',
+            borderBottomWidth: 1, 
+            padding: '5%' }}
+        />
       <View style={styles.button}>
         <Button title="Login" onPress={() => navigate('List')}/>
         <Button title="Signup" onPress={() => navigate('Signup')}/>
       </View>
+      <View style={{ height: 100 }} />
     </KeyboardAvoidingView>
   );
  }
