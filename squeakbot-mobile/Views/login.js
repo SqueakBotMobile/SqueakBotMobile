@@ -20,7 +20,7 @@ export default class Login extends React.Component {
           placeholder="username"
           style={{ 
             borderBottomColor: '#000000',
-            borderBottomWidth: 1, 
+            // borderBottomWidth: 1, 
             padding: '5%' }}
         />
         <TextInput
@@ -28,8 +28,9 @@ export default class Login extends React.Component {
           secureTextEntry={true}
           style={{ 
             borderBottomColor: '#000000',
-            borderBottomWidth: 1, 
-            padding: '5%' }}
+            // borderBottomWidth: 1, 
+            padding: '5%' 
+            }}
         />
       <View style={styles.button}>
         <Button title="Login" onPress={() => navigate('List')}/>
@@ -45,9 +46,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    // alignItems: 'center',
     marginTop: 40,
     justifyContent: 'center',
+    padding: 5
   },
   textStyle: {
     fontSize: 30,
