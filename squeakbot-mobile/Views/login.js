@@ -12,7 +12,7 @@ export default class Login extends React.Component {
       style={styles.container}
       behavior="padding" enabled>
       <Image 
-        style={{width: 200, height: 200}}
+        style={{width: 320, height: 200}}
         source={require('../assets/mouseboard.jpg')}
       />
       <TextInput
