@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TextInput, View, Image, Button, FlatList } from 'react-native';
 
+import { LOCAL_API_URL } from 'react-native-dotenv';
+
 const useFetch = (url, options) => {
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(null)
@@ -23,7 +25,7 @@ const useFetch = (url, options) => {
 export default (props) => {
   const {navigate} = props.navigation;
 
-  const res = useFetch("https://squeakbot-mobile.herokuapp.com/questions/challenges")
+  const res = useFetch(`${LOCAL_API_URL}/questions/challenges`)
   if(!res.response) return <Text>loading...</Text>
 
   return (
