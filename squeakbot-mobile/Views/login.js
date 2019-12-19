@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
+import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import { AsyncStorage } from 'react-native'
 
 import base64 from 'react-native-base64';
@@ -90,44 +90,40 @@ export default class Login extends React.Component {
         behavior="padding"
       >
       <ImageBackground 
-      source={require('../assets/stripes.jpg')}
+      source={require('../assets/orange.jpg')}
       style={styles.background}>
         
-       <Image 
-        style={styles.image}
-        source={require('../assets/squeakboticon.png')}
+        <Image 
+          style={styles.image}
+          source={require('../assets/squeakboticon.png')}
         />
 
         <If condition={this.state.loggedIn}>
-          <Text>Welcome!</Text>
-          <Button title="Display Token" onPress={() => this.displayToken()} />
-          <Button title="Go to the app" onPress={() => navigate('List')} />
+          <Text style={styles.welcomeLogin}>Welcome, you are logged in!</Text>
+          {/* <Button title="Display Token" onPress={() => this.displayToken()} /> */}
+          <Button title="Choose a Question" onPress={() => navigate('List')} />
         </If>
 
+
         <If condition={!this.state.loggedIn}>
+
           <View style={styles.textGroup}>
-          <TextInput
-            placeholder="username"
-            onChangeText={(username) => this.setState({usernameInput: username})}
-            value={this.state.username}
-            style={{ 
-              borderBottomColor: '#000000',
-              // borderBottomWidth: 1, 
-              padding: '5%'
-            }}
-          />
-          <TextInput
-            placeholder="password"
-            onChangeText={(password) => this.setState({ passwordInput: password })}
-            secureTextEntry={true}
-            style={{ 
-              borderBottomColor: '#000000',
-              // borderBottomWidth: 1, 
-              padding: '5%' 
-            }}
-          />
-        </View>
-          <View style={styles.button}>
+            <TextInput
+              placeholder="username"
+              onChangeText={(username) => this.setState({usernameInput: username})}
+              value={this.state.username}
+              style={styles.textInput}
+            />
+            <TextInput
+              placeholder="password"
+              onChangeText={(password) => this.setState({ passwordInput: password })}
+              secureTextEntry={true}
+              style={styles.textInput}
+            />
+            </View>
+           
+
+            <View style={styles.button}>
             {/* <Button title="Login" onPress={() => navigate('List')}/> */}
             <Button
               title="Login"
@@ -137,9 +133,12 @@ export default class Login extends React.Component {
               title="Signup"
               onPress={() => navigate('Signup')}
             />
-          </View>
-          <View style={{ height: 100 }} />
+            </View>
+          
+          {/* <View style={{ height: 100 }} /> */}
         </If>
+
+
         <View>
           <Text style={styles.footer}>&copy; squeakbot</Text>
         </View>
@@ -151,9 +150,9 @@ export default class Login extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     backgroundColor: '#d3d3d3',
-    padding: 0
+    padding: 0, 
   },
   image: {
     width: 140,
@@ -162,29 +161,35 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     marginLeft: 200,
     marginTop: 28,
-    marginRight: 100,
+    // marginRight: 200,
   },
   textInput: { 
-    flex: 1,
+    flex: 2,
     fontSize: 20,
-    // fontWeight: 'bold',
     borderBottomColor: '#000000', 
-    paddingTop: '27%',
+    paddingTop: '2%',
     paddingLeft: '8%',
-
+   },
+   welcomeLogin: {
+    fontSize: 25,
+    padding: 20, 
+    justifyContent: 'center',
+    alignItems: 'center',
    },
    textGroup: {
      flex: 1,
-     flexDirection: 'row', 
-     justifyContent: 'space-between'
+     flexDirection: 'column', 
+     justifyContent: 'space-between',
+     borderBottomColor: '#000000',
+     padding: '5%'
    },
   button: {
     flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '30%',
-    marginLeft: '10%',
-    marginRight: '10%'
+    marginTop: '5%',
+    marginLeft: '25%',
+    marginRight: '25%'
   }, 
   background: {
     height: '100%',
@@ -196,7 +201,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 120, 
     marginBottom: 5,
-   
   }
 });
 
