@@ -1,20 +1,14 @@
 import React from 'react';
-
-import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
+import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import { AsyncStorage } from 'react-native'
-
 import base64 from 'react-native-base64';
-
 import { REACT_APP_SECRET, LOCAL_API_URL } from 'react-native-dotenv'
 import jwt from 'expo-jwt';
-
 import If from '../components/if'
-
 export default class Login extends React.Component {
   static navigationOptions = {
     title: 'Welcome to SqueakBot'
   };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +20,6 @@ export default class Login extends React.Component {
       user: {},
     };
   }
-
   login = (username, password) => {
     console.log(username, password)
     // This is foul and unsafe ... but when working offline / testmode ess oh kay
@@ -45,7 +38,6 @@ export default class Login extends React.Component {
         .catch(console.error);
     // }
   }
-
   validateToken = async (token) => {
     try {
       let user = jwt.decode(token, REACT_APP_SECRET);
@@ -56,17 +48,14 @@ export default class Login extends React.Component {
       console.log("Token Validation Error", e);
     }
   };
-
   logout = () => {
     this.setLoginState(false, null, {});
   };
-
   ///////////
   setLoginState = async (loggedIn, token, user) => {
     await AsyncStorage.setItem('@token', token)
     this.setState({ token, loggedIn, user });
   };
-
   displayToken = async () => {
     const result = await AsyncStorage.getItem('@token')
     if (result !== null) {
@@ -76,12 +65,10 @@ export default class Login extends React.Component {
       return 'no token retrieved'
     }
   }
-
   // componentDidMount() {
   //   this.validateToken()
   // }
   ///////////
-
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -89,45 +76,32 @@ export default class Login extends React.Component {
         style={styles.container}
         behavior="padding"
       >
-      <ImageBackground 
+      {/* <ImageBackground 
       source={require('../assets/stripes.jpg')}
-      style={styles.background}>
-        
-       <Image 
-        style={styles.image}
-        source={require('../assets/squeakboticon.png')}
+      style={styles.background}> */}
+        <Image 
+          style={styles.image}
+          source={require('../assets/squeakboticon.png')}
         />
-
         <If condition={this.state.loggedIn}>
           <Text>Welcome!</Text>
           <Button title="Display Token" onPress={() => this.displayToken()} />
           <Button title="Go to the app" onPress={() => navigate('List')} />
         </If>
-
         <If condition={!this.state.loggedIn}>
-          <View style={styles.textGroup}>
-          <TextInput
-            placeholder="username"
-            onChangeText={(username) => this.setState({usernameInput: username})}
-            value={this.state.username}
-            style={{ 
-              borderBottomColor: '#000000',
-              // borderBottomWidth: 1, 
-              padding: '5%'
-            }}
-          />
-          <TextInput
-            placeholder="password"
-            onChangeText={(password) => this.setState({ passwordInput: password })}
-            secureTextEntry={true}
-            style={{ 
-              borderBottomColor: '#000000',
-              // borderBottomWidth: 1, 
-              padding: '5%' 
-            }}
-          />
-        </View>
-          <View style={styles.button}>
+            <TextInput
+              placeholder="username"
+              onChangeText={(username) => this.setState({usernameInput: username})}
+              value={this.state.username}
+              style={styles.textInput}
+            />
+            <TextInput
+              placeholder="password"
+              onChangeText={(password) => this.setState({ passwordInput: password })}
+              secureTextEntry={true}
+              style={styles.textInput}
+            />
+            <View style={styles.button}>
             {/* <Button title="Login" onPress={() => navigate('List')}/> */}
             <Button
               title="Login"
@@ -137,23 +111,22 @@ export default class Login extends React.Component {
               title="Signup"
               onPress={() => navigate('Signup')}
             />
-          </View>
-          <View style={{ height: 100 }} />
+            </View>
+          {/* <View style={{ height: 100 }} /> */}
         </If>
         <View>
           <Text style={styles.footer}>&copy; squeakbot</Text>
         </View>
-    </ImageBackground>
+    {/* </ImageBackground> */}
     </KeyboardAvoidingView>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     backgroundColor: '#d3d3d3',
-    padding: 0
+    padding: 0, 
   },
   image: {
     width: 140,
@@ -171,18 +144,19 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000000', 
     paddingTop: '27%',
     paddingLeft: '8%',
-
    },
    textGroup: {
      flex: 1,
      flexDirection: 'row', 
-     justifyContent: 'space-between'
+     justifyContent: 'space-between',
+     borderBottomColor: '#000000',
+     padding: '5%'
    },
   button: {
     flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '30%',
+    marginTop: '10%',
     marginLeft: '10%',
     marginRight: '10%'
   }, 
@@ -196,7 +170,5 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 120, 
     marginBottom: 5,
-   
   }
 });
-
