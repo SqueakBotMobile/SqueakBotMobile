@@ -6,7 +6,6 @@ import Signup from './Views/signup';
 import Question from './Views/question';
 import Comments from './Views/comments';
 
-
 const MainNavigator = createStackNavigator (
   {
     Login: {screen: Login},

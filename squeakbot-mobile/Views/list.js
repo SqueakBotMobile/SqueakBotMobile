@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, TextInput, View, Image, Button, FlatList } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, Button, FlatList, ImageBackground } from 'react-native';
 
 import { LOCAL_API_URL } from 'react-native-dotenv';
 
@@ -21,7 +21,6 @@ const useFetch = (url, options) => {
   return { response, error }
 }
 
-
 export default (props) => {
   const {navigate} = props.navigation;
 
@@ -30,8 +29,7 @@ export default (props) => {
 
   return (
   <View style={styles.container}>
-    <Text style={styles.title}>List of Questions</Text>
-
+    <Text style={styles.textStyle}>List of Questions</Text>
     <FlatList 
         keyExtractor={item => item.name}
         data={res.response.results}
@@ -41,29 +39,28 @@ export default (props) => {
               {item.name}
             </Text>
           )
-        }}
-      />
+        }
+      }
+    />
 
     <Button title="View Question" onPress={() => navigate('Question')}/>
+    {/* </ImageBackground> */}
   </View>
   );
 }
  
 const styles = StyleSheet.create({
-  list: {
+  container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 50
   },
   textStyle: {
-    fontSize: 20,
+    marginRight: 30,
+    marginLeft: 30,
+    fontSize: 30,
     color: 'teal',
-    marginVertical: 25
-  },
-  title: {
-    fontSize: 50,
-    color: 'orange',
   }
 });
