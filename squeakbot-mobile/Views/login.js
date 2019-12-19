@@ -3,23 +3,23 @@ import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoid
 
 export default class Login extends React.Component {
   static navigationOptions = {
-    title: 'Welcome to SqueakBot'
-  };
+    title: 'Welcome to SqueakBot', 
+  }
   render() {
     const {navigate} = this.props.navigation;
     return (
-      
+  
     <KeyboardAvoidingView
       style={styles.container}
       behavior="padding"
     >
       <ImageBackground 
-      source={require('../assets/bluepinkgradient.jpg')}
+      source={require('../assets/stripes.jpg')}
       style={styles.background}>
         
       <Image 
         style={styles.image}
-        source={require('../assets/mouse_only.png')}
+        source={require('../assets/squeakboticon.png')}
         />
         <TextInput
           placeholder="username"
@@ -50,15 +50,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#d3d3d3',
-    padding: 20
+    padding: 0
   },
   image: {
     width: 140,
     height: 140,
     // justifyContent: 'center',
     // alignItems: 'center',
-    marginLeft: 100,
-    marginTop: 50,
+    marginLeft: 200,
+    marginTop: 28,
     marginRight: 100,
   },
   textInput: { 
@@ -78,14 +78,15 @@ const styles = StyleSheet.create({
   background: {
     height: '100%',
     width: '100%',
-    marginBottom: '8%'
+    marginBottom: '20%'
   },
   footer: {
     color: 'grey',
     fontSize: 16,
-    marginLeft: 120,
+    marginLeft: 135,
     marginRight: 120, 
-    marginBottom: 5
+    marginBottom: 5,
+    // backgroundColor: 'white'
   }
 });
 
