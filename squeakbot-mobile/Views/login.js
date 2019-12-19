@@ -14,7 +14,7 @@ export default class Login extends React.Component {
       behavior="padding"
     >
       <ImageBackground 
-      source={require('../assets/darkblue.jpg')}
+      source={require('../assets/bluepinkgradient.jpg')}
       style={styles.background}>
         
       <Image 
@@ -35,7 +35,10 @@ export default class Login extends React.Component {
           <Button title="Signup" onPress={() => navigate('Signup')}/>
         </View>
       
-        <View style={{ height: 100 }} />
+        {/* <View style={{ height: 100 }} /> */}
+        <View>
+          <Text style={styles.footer}>&copy; squeakbot</Text>
+        </View>
         
     </ImageBackground>
     </KeyboardAvoidingView>
@@ -55,23 +58,34 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     marginLeft: 100,
-    marginTop: 100,
+    marginTop: 50,
     marginRight: 100,
   },
   textInput: { 
+    fontSize: 20,
     borderBottomColor: '#000000', 
-    padding: '5%'
+    paddingTop: '8%',
+    paddingLeft: '8%'
    },
   button: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20
+    marginTop: '10%',
+    marginLeft: '10%',
+    marginRight: '10%'
   }, 
   background: {
     height: '100%',
     width: '100%',
     marginBottom: '8%'
+  },
+  footer: {
+    color: 'grey',
+    fontSize: 16,
+    marginLeft: 120,
+    marginRight: 120, 
+    marginBottom: 5
   }
 });
 
