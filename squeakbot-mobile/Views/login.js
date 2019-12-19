@@ -1,20 +1,14 @@
 import React from 'react';
-
 import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import { AsyncStorage } from 'react-native'
-
 import base64 from 'react-native-base64';
-
 import { REACT_APP_SECRET, LOCAL_API_URL } from 'react-native-dotenv'
 import jwt from 'expo-jwt';
-
 import If from '../components/if'
-
 export default class Login extends React.Component {
   static navigationOptions = {
     title: 'Welcome to SqueakBot'
   };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +20,6 @@ export default class Login extends React.Component {
       user: {},
     };
   }
-
   login = (username, password) => {
     console.log(username, password)
     // This is foul and unsafe ... but when working offline / testmode ess oh kay
@@ -45,7 +38,6 @@ export default class Login extends React.Component {
         .catch(console.error);
     // }
   }
-
   validateToken = async (token) => {
     try {
       let user = jwt.decode(token, REACT_APP_SECRET);
@@ -56,17 +48,14 @@ export default class Login extends React.Component {
       console.log("Token Validation Error", e);
     }
   };
-
   logout = () => {
     this.setLoginState(false, null, {});
   };
-
   ///////////
   setLoginState = async (loggedIn, token, user) => {
     await AsyncStorage.setItem('@token', token)
     this.setState({ token, loggedIn, user });
   };
-
   displayToken = async () => {
     const result = await AsyncStorage.getItem('@token')
     if (result !== null) {
@@ -76,12 +65,10 @@ export default class Login extends React.Component {
       return 'no token retrieved'
     }
   }
-
   // componentDidMount() {
   //   this.validateToken()
   // }
   ///////////
-
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -92,22 +79,20 @@ export default class Login extends React.Component {
       <ImageBackground 
       source={require('../assets/orange.jpg')}
       style={styles.background}>
-        
         <Image 
           style={styles.image}
           source={require('../assets/squeakboticon.png')}
         />
-
         <If condition={this.state.loggedIn}>
           <Text style={styles.welcomeLogin}>Welcome, you are logged in!</Text>
           {/* <Button title="Display Token" onPress={() => this.displayToken()} /> */}
           <Button title="Choose a Question" onPress={() => navigate('List')} />
         </If>
 
-
         <If condition={!this.state.loggedIn}>
 
           <View style={styles.textGroup}>
+
             <TextInput
               placeholder="username"
               onChangeText={(username) => this.setState({usernameInput: username})}
@@ -120,9 +105,9 @@ export default class Login extends React.Component {
               secureTextEntry={true}
               style={styles.textInput}
             />
+
             </View>
            
-
             <View style={styles.button}>
             {/* <Button title="Login" onPress={() => navigate('List')}/> */}
             <Button
@@ -134,7 +119,7 @@ export default class Login extends React.Component {
               onPress={() => navigate('Signup')}
             />
             </View>
-          
+
           {/* <View style={{ height: 100 }} /> */}
         </If>
 
@@ -142,12 +127,11 @@ export default class Login extends React.Component {
         <View>
           <Text style={styles.footer}>&copy; squeakbot</Text>
         </View>
-    </ImageBackground>
+    {/* </ImageBackground> */}
     </KeyboardAvoidingView>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -203,4 +187,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   }
 });
-

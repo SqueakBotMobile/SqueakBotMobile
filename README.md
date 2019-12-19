@@ -18,7 +18,24 @@ question. When a user asks, "Give me a challenge", the google API will receive y
 mobile device. Using a Node Server, it pulls a random question from a SQL database and reads it out loud.
 
 ## Domain Model:
-![](assets/domain_model.png)
+![domain model](assets/domain_model.png)
 
 ## Database Entity-Relationship-Diagram
-![](./assets/DBForSqueakBot.png)
+![database entity relationship diagram](./assets/DBForSqueakBot.png)
+
+## WireFrame
+
+### Home Page
+![wireframe](./assets/home.jpg)
+
+### Nav
+![Nav bar](./assets/nav.jpg)
+
+### Get a Question
+![get a question](./assets/getquestion.jpg)
+
+### Hint
+![hint](./assets/hint.jpg)
+
+### Saved Questions
+![saved questions](./assets/saved.jpg)
