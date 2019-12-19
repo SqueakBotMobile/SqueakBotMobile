@@ -40,8 +40,8 @@ export default (props) => {
             </Text>
           )
         }
-        }
-      />
+      }
+    />
 
     <Button title="View Question" onPress={() => navigate('Question')}/>
     {/* </ImageBackground> */}

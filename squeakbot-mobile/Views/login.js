@@ -37,7 +37,7 @@ export default class Login extends React.Component {
       fetch(`${LOCAL_API_URL}/signin`, {
         method: 'POST',
         headers: new Headers({
-          "Authorization": `Basic ${base64.encode("Alistair:test")}`
+          "Authorization": `Basic ${base64.encode(`${this.state.usernameInput}:${this.state.passwordInput}`)}`
         }),
       })
         .then(response => response.text())
@@ -145,7 +145,6 @@ export default class Login extends React.Component {
         </View>
     </ImageBackground>
     </KeyboardAvoidingView>
-      </KeyboardAvoidingView>
     );
   }
 }
