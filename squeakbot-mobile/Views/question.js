@@ -3,7 +3,6 @@ import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView} from '
 import ModalExample from '../components/modal';
 import StopWatch from '../components/timer2';
 
-
 export default (props) => {
   const {navigate} = props.navigation;
   return (
@@ -26,8 +25,8 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 4,
-    backgroundColor: '#fff',
+    flex: 1,
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },

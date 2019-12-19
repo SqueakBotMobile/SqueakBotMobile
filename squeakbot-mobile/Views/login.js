@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView } from 'react-native';
 import { AsyncStorage } from 'react-native'
 
@@ -88,11 +89,13 @@ export default class Login extends React.Component {
         style={styles.container}
         behavior="padding"
       >
-        <Image
-          style={{
-            width: 320, height: 200
-          }}
-          source={require('../assets/mouseboard.jpg')}
+      <ImageBackground 
+      source={require('../assets/stripes.jpg')}
+      style={styles.background}>
+        
+       <Image 
+        style={styles.image}
+        source={require('../assets/squeakboticon.png')}
         />
 
         <If condition={this.state.loggedIn}>
@@ -102,6 +105,7 @@ export default class Login extends React.Component {
         </If>
 
         <If condition={!this.state.loggedIn}>
+          <View style={styles.textGroup}>
           <TextInput
             placeholder="username"
             onChangeText={(username) => this.setState({usernameInput: username})}
@@ -122,6 +126,7 @@ export default class Login extends React.Component {
               padding: '5%' 
             }}
           />
+        </View>
           <View style={styles.button}>
             {/* <Button title="Login" onPress={() => navigate('List')}/> */}
             <Button
@@ -135,6 +140,11 @@ export default class Login extends React.Component {
           </View>
           <View style={{ height: 100 }} />
         </If>
+        <View>
+          <Text style={styles.footer}>&copy; squeakbot</Text>
+        </View>
+    </ImageBackground>
+    </KeyboardAvoidingView>
       </KeyboardAvoidingView>
     );
   }
@@ -142,27 +152,52 @@ export default class Login extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    marginTop: 40,
-    justifyContent: 'center',
-    padding: 5
-  },
-  textStyle: {
-    fontSize: 30,
-    color: 'teal',
+    flex: 2,
+    backgroundColor: '#d3d3d3',
+    padding: 0
   },
   image: {
-    width: 320,
-    height:200,
-    resizeMode: 'stretch'
+    width: 140,
+    height: 140,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    marginLeft: 200,
+    marginTop: 28,
+    marginRight: 100,
   },
-  button: {
+  textInput: { 
     flex: 1,
+    fontSize: 20,
+    // fontWeight: 'bold',
+    borderBottomColor: '#000000', 
+    paddingTop: '27%',
+    paddingLeft: '8%',
+
+   },
+   textGroup: {
+     flex: 1,
+     flexDirection: 'row', 
+     justifyContent: 'space-between'
+   },
+  button: {
+    flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20
+    marginTop: '30%',
+    marginLeft: '10%',
+    marginRight: '10%'
+  }, 
+  background: {
+    height: '100%',
+    width: '100%',
+  },
+  footer: {
+    color: 'grey',
+    fontSize: 16,
+    marginLeft: 10,
+    marginRight: 120, 
+    marginBottom: 5,
+   
   }
 });
 
