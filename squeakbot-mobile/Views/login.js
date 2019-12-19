@@ -21,6 +21,7 @@ export default class Login extends React.Component {
         style={styles.image}
         source={require('../assets/squeakboticon.png')}
         />
+        <View style={styles.textGroup}>
         <TextInput
           placeholder="username"
           style={styles.textInput}
@@ -30,6 +31,7 @@ export default class Login extends React.Component {
           secureTextEntry={true}
           style={styles.textInput}
         />
+        </View>
         <View style={styles.button}>
           <Button title="Login" onPress={() => navigate('List')}/>
           <Button title="Signup" onPress={() => navigate('Signup')}/>
@@ -48,7 +50,7 @@ export default class Login extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#d3d3d3',
     padding: 0
   },
@@ -62,31 +64,38 @@ const styles = StyleSheet.create({
     marginRight: 100,
   },
   textInput: { 
+    flex: 1,
     fontSize: 20,
+    // fontWeight: 'bold',
     borderBottomColor: '#000000', 
-    paddingTop: '8%',
-    paddingLeft: '8%'
+    paddingTop: '27%',
+    paddingLeft: '8%',
+
+   },
+   textGroup: {
+     flex: 1,
+     flexDirection: 'row', 
+     justifyContent: 'space-between'
    },
   button: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '10%',
+    marginTop: '30%',
     marginLeft: '10%',
     marginRight: '10%'
   }, 
   background: {
     height: '100%',
     width: '100%',
-    marginBottom: '20%'
   },
   footer: {
     color: 'grey',
     fontSize: 16,
-    marginLeft: 135,
+    marginLeft: 10,
     marginRight: 120, 
     marginBottom: 5,
-    // backgroundColor: 'white'
+   
   }
 });
 
