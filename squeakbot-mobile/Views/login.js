@@ -76,19 +76,23 @@ export default class Login extends React.Component {
         style={styles.container}
         behavior="padding"
       >
-      {/* <ImageBackground 
-      source={require('../assets/stripes.jpg')}
-      style={styles.background}> */}
+      <ImageBackground 
+      source={require('../assets/orange.jpg')}
+      style={styles.background}>
         <Image 
           style={styles.image}
           source={require('../assets/squeakboticon.png')}
         />
         <If condition={this.state.loggedIn}>
-          <Text>Welcome!</Text>
-          <Button title="Display Token" onPress={() => this.displayToken()} />
-          <Button title="Go to the app" onPress={() => navigate('List')} />
+          <Text style={styles.welcomeLogin}>Welcome, you are logged in!</Text>
+          {/* <Button title="Display Token" onPress={() => this.displayToken()} /> */}
+          <Button title="Choose a Question" onPress={() => navigate('List')} />
         </If>
+
         <If condition={!this.state.loggedIn}>
+
+          <View style={styles.textGroup}>
+
             <TextInput
               placeholder="username"
               onChangeText={(username) => this.setState({usernameInput: username})}
@@ -101,6 +105,9 @@ export default class Login extends React.Component {
               secureTextEntry={true}
               style={styles.textInput}
             />
+
+            </View>
+           
             <View style={styles.button}>
             {/* <Button title="Login" onPress={() => navigate('List')}/> */}
             <Button
@@ -112,8 +119,11 @@ export default class Login extends React.Component {
               onPress={() => navigate('Signup')}
             />
             </View>
+
           {/* <View style={{ height: 100 }} /> */}
         </If>
+
+
         <View>
           <Text style={styles.footer}>&copy; squeakbot</Text>
         </View>
@@ -135,19 +145,24 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     marginLeft: 200,
     marginTop: 28,
-    marginRight: 100,
+    // marginRight: 200,
   },
   textInput: { 
-    flex: 1,
+    flex: 2,
     fontSize: 20,
-    // fontWeight: 'bold',
     borderBottomColor: '#000000', 
-    paddingTop: '27%',
+    paddingTop: '2%',
     paddingLeft: '8%',
+   },
+   welcomeLogin: {
+    fontSize: 25,
+    padding: 20, 
+    justifyContent: 'center',
+    alignItems: 'center',
    },
    textGroup: {
      flex: 1,
-     flexDirection: 'row', 
+     flexDirection: 'column', 
      justifyContent: 'space-between',
      borderBottomColor: '#000000',
      padding: '5%'
@@ -156,9 +171,9 @@ const styles = StyleSheet.create({
     flex: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '10%',
-    marginLeft: '10%',
-    marginRight: '10%'
+    marginTop: '5%',
+    marginLeft: '25%',
+    marginRight: '25%'
   }, 
   background: {
     height: '100%',
