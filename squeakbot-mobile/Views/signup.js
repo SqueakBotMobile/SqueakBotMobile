@@ -2,24 +2,35 @@ import React, { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { LOCAL_API_URL } from 'react-native-dotenv';
 
+import If from '../components/if'
+
+
 export default (props) => {
   const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [isLoggedIn, setLogin] = React.useState(false);
   const {navigate} = props.navigation;
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = () => {
     fetch(`${LOCAL_API_URL}/signup`, {
-      
-    })
-    // define request.body with username, email and password
-    // then response is token
-    // save that token in AsyncStorage
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({username, email, password})
+    }).then(token => {
+      setLogin(true);
+    });
   }
 
   return (
     <View style={styles.container}>
+      <If condition={isLoggedIn}>
+        <Text style={styles.welcomeLogin}>Welcome, you are logged in!</Text>
+        {/* <Button title="Display Token" onPress={() => this.displayToken()} /> */}
+        <Button style={{marginBottom: 50}}title="Choose a Question" onPress={() => navigate('List')} />
+      </If>
       <Text>Sign Up</Text>
       <TextInput
         value={email}
