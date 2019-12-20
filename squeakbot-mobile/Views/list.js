@@ -30,24 +30,36 @@ export default (props) => {
   if(!res.response) return <Text>loading...</Text>
 
   return (
-  <View style={styles.container}>
-    <Text style={styles.textStyle}>List of Questions</Text>
-    <FlatList 
-        keyExtractor={item => item.challenges}
-        data={res.response}
-        renderItem={({ item }) => {
-          return (
-            <Text style={styles.textStyle}>
-              {item.challenges}
-            </Text>
-          )
-        }
-      }
-    />
+  // <View style={styles.container}>
+    <ImageBackground 
+      source={require('../assets/orange.jpg')}
+      style={styles.background}>
 
-    <Button title="View Question" onPress={() => navigate('Question')}/>
-    {/* </ImageBackground> */}
+    <View>
+      <Text style={styles.title}>List of Questions</Text>
+      <FlatList 
+          keyExtractor={item => item.challenges}
+          data={res.response}
+          renderItem={({ item }) => {
+            return (
+              <>
+              <Text style={styles.listItem}>
+                {item.challenges}
+              </Text>
+
+              <View style={styles.buttonView}>
+                <Button title="view question" onPress={() => navigate('Question')}></Button>
+              </View>
+              </>
+            )
+          }
+        }
+      />
   </View>
+
+
+    </ImageBackground>
+//  </View>
   );
 }
  
@@ -59,10 +71,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 50
   },
+  title: {
+    marginTop: 30,
+    marginRight: 30,
+    marginLeft: 80,
+    padding: 10,
+    fontSize: 30,
+    color: 'black'
+  },
   textStyle: {
     marginRight: 30,
     marginLeft: 30,
     fontSize: 30,
-    color: 'teal',
+    color: 'black',
+  },
+  listItem: {
+    padding: 50
+  },
+  background: {
+    height: '100%',
+    width: '100%',
+  }, 
+  buttonView: {
+    flexDirection: 'row-reverse',
+    padding: 10
   }
 });

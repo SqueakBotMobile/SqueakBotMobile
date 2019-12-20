@@ -104,10 +104,11 @@ export default class StopWatch extends Component {
  
 const styles = StyleSheet.create({
   MainContainer: {
-    height: 200,
+    height: 190,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FEB125',
+    opacity: 0.8
   },
   inline: {
     flex: 1,
@@ -116,17 +117,19 @@ const styles = StyleSheet.create({
   button: {
     width: '30%',
     height: '30%',
-    paddingTop:8,
-    paddingBottom:8,
-    borderRadius:7,
-    marginTop: 10,
+    paddingTop: 8,
+    paddingBottom: 8,
+    borderRadius: 15,
+    marginTop: 30,
+  
   },
   buttonText:{
     color:'#fff',
     textAlign:'center',
-    fontSize: 20
+    fontSize: 17
   },
   counterText:{
+    marginTop: 30,
     fontSize: 28,
     color: '#000'
   }

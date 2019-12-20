@@ -1,23 +1,41 @@
 import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView} from 'react-native';
-import ModalExample from '../components/modal';
+import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground} from 'react-native';
+
 import StopWatch from '../components/timer2';
+
 
 export default (props) => {
   const {navigate} = props.navigation;
+
+  //get the ID from the question chosen
+  //fetch one quetsions, using the ID
+
   return (
     <>
-    <View style={styles.container}>
-      <Text>Question Page</Text>
-      <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/>
-      <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/>
-      {/* <Button title="Tap to Start Timer" onPress={() => console.log('starting timer')}/> */}
-      {/* <Button title="Tap to see comments" onPress={() => navigate('Comments')}/> */}
-      <Button title="Home" onPress={() => navigate('Login')}/>
-      {/* <ModalExample /> */}
+    <View>
+
+    <ImageBackground 
+      source={require('../assets/orange.jpg')}
+      style={styles.background}>
+
+      {/* <Text>Question Page</Text> */}
+
+        {/* <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/> */}
+        {/* <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/> */}
+        {/* <Button title="Tap to see comments" onPress={() => navigate('Comments')}/> */}
+
+      <View style={styles.returnHome}>
+        <Button title="Home" onPress={() => navigate('Login')}/>
+       </View>
+        {/* <ModalExample /> */}
+
+
       <View style={styles.stopWatch}>
-        <StopWatch />
+          <StopWatch />
       </View>
+
+      </ImageBackground>
+
     </View>
     </>
   );
@@ -29,6 +47,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  background: {
+    height: '100%',
+    width: '100%',
   },
   textStyle: {
     fontSize: 30,
@@ -42,8 +64,9 @@ const styles = StyleSheet.create({
   stopWatch: {
     flex: 1,
     justifyContent: 'flex-end'
+  },
+  returnHome: {
+    flex: 1,
+    justifyContent: 'flex-end'
   }
 });
-
-
-  
