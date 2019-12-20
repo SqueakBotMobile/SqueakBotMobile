@@ -46,7 +46,10 @@ export default (props) => {
               <Text style={styles.listItem}>
                 {item.challenges}
               </Text>
-              <Button title="pick this question" onPress={() => navigate('Question')}></Button>
+
+              <View style={styles.buttonView}>
+                <Button title="view question" onPress={() => navigate('Question')}></Button>
+              </View>
               </>
             )
           }
@@ -54,7 +57,7 @@ export default (props) => {
       />
   </View>
 
-    <Button title="View Question" onPress={() => navigate('Question')}/>
+
     </ImageBackground>
 //  </View>
   );
@@ -88,5 +91,9 @@ const styles = StyleSheet.create({
   background: {
     height: '100%',
     width: '100%',
+  }, 
+  buttonView: {
+    flexDirection: 'row-reverse',
+    padding: 10
   }
 });

@@ -1,10 +1,15 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground} from 'react-native';
-import ModalExample from '../components/modal';
+
 import StopWatch from '../components/timer2';
+
 
 export default (props) => {
   const {navigate} = props.navigation;
+
+  //get the ID from the question chosen
+  //fetch one quetsions, using the ID
+
   return (
     <>
     <View>
@@ -13,17 +18,20 @@ export default (props) => {
       source={require('../assets/orange.jpg')}
       style={styles.background}>
 
-      <Text>Question Page</Text>
-        <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/>
-        <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/>
-        {/* <Button title="Tap to Start Timer" onPress={() => console.log('starting timer')}/> */}
+      {/* <Text>Question Page</Text> */}
+
+        {/* <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/> */}
+        {/* <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/> */}
         {/* <Button title="Tap to see comments" onPress={() => navigate('Comments')}/> */}
+
+      <View style={styles.returnHome}>
         <Button title="Home" onPress={() => navigate('Login')}/>
+       </View>
         {/* <ModalExample /> */}
 
 
       <View style={styles.stopWatch}>
-        <StopWatch />
+          <StopWatch />
       </View>
 
       </ImageBackground>
@@ -54,6 +62,10 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch'
   },
   stopWatch: {
+    flex: 1,
+    justifyContent: 'flex-end'
+  },
+  returnHome: {
     flex: 1,
     justifyContent: 'flex-end'
   }
