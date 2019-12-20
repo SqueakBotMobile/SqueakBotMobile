@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground } from 'react-native';
+import { Button, Header, Image, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground, ScrollView } from 'react-native';
 import { AsyncStorage } from 'react-native'
 import base64 from 'react-native-base64';
 import { REACT_APP_SECRET, LOCAL_API_URL } from 'react-native-dotenv'
@@ -86,7 +86,7 @@ export default class Login extends React.Component {
         <If condition={this.state.loggedIn}>
           <Text style={styles.welcomeLogin}>Welcome, you are logged in!</Text>
           {/* <Button title="Display Token" onPress={() => this.displayToken()} /> */}
-          <Button title="Choose a Question" onPress={() => navigate('List')} />
+          <Button style={{marginBottom: 50}}title="Choose a Question" onPress={() => navigate('List')} />
         </If>
 
         <If condition={!this.state.loggedIn}>
@@ -121,13 +121,9 @@ export default class Login extends React.Component {
             </View>
 
           {/* <View style={{ height: 100 }} /> */}
-        </If>
-
-
-        <View>
           <Text style={styles.footer}>&copy; squeakbot</Text>
-        </View>
-    {/* </ImageBackground> */}
+        </If>
+    </ImageBackground>
     </KeyboardAvoidingView>
     );
   }
@@ -156,7 +152,9 @@ const styles = StyleSheet.create({
    },
    welcomeLogin: {
     fontSize: 25,
-    padding: 20, 
+    paddingTop: 50, 
+    paddingBottom: 80,
+    marginLeft: 35,
     justifyContent: 'center',
     alignItems: 'center',
    },
@@ -185,5 +183,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 120, 
     marginBottom: 5,
+    // position: 'fixed',
+    // bottom: '0'
   }
 });

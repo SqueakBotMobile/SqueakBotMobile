@@ -8,6 +8,9 @@ export default (props) => {
   return (
     <>
     <View style={styles.container}>
+    {/* <ImageBackground 
+      source={require('../assets/orange.jpg')}
+      style={styles.background}> */}
       <Text>Question Page</Text>
       <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/>
       <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/>
