@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { LOCAL_API_URL } from 'react-native-dotenv';
 
- export default (props) => {
+export default (props) => {
   const [username, setUsername] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const {navigate} = props.navigation;
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    fetch(`${LOCAL_API_URL}/signup`, {
+      
+    })
+    // define request.body with username, email and password
+    // then response is token
+    // save that token in AsyncStorage
+  }
+
   return (
     <View style={styles.container}>
       <Text>Sign Up</Text>
@@ -44,7 +56,7 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
       />
       <Button 
         title="create user" 
-        onPress={() => console.log('creating user')}
+        onPress={() => {handleSubmit()}}
         style={{
           paddingTop: 30
         }}
@@ -63,7 +75,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 30,
-   color: 'teal',
+    color: 'teal',
   },
   image: {
     width: 200,
@@ -71,6 +83,3 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch'
   },
 });
-
-
-  
