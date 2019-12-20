@@ -5,6 +5,7 @@ import base64 from 'react-native-base64';
 import { REACT_APP_SECRET, LOCAL_API_URL } from 'react-native-dotenv'
 import jwt from 'expo-jwt';
 import If from '../components/if'
+
 export default class Login extends React.Component {
   static navigationOptions = {
     title: 'Welcome to SqueakBot'
@@ -72,7 +73,7 @@ export default class Login extends React.Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <KeyboardAvoidingView
+      <KeyboardAvoidingView>
         style={styles.container}
         behavior="padding"
       >
