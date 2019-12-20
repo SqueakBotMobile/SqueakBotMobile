@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground} from 'react-native';
+import { AsyncStorage } from 'react-native'
+
+import { LOCAL_API_URL } from 'react-native-dotenv';
 
 import StopWatch from '../components/timer2';
 
+const useFetch = (url, options) => {
+  const [response, setResponse] = useState(null)
+  const [error, setError] = useState(null)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        options.headers = {'Authorization': `Bearer ${await AsyncStorage.getItem('@token')}`}
+        const res = await fetch(url, options)
+        const json = await res.json()
+        setResponse(json)
+      } catch (e) {
+        setError(e)
+      }
+    }
+    fetchData()
+  }, [])
+  return { response, error }
+}
 
 export default (props) => {
-  const {navigate} = props.navigation;
+  const { navigate } = props.navigation;
+  const { questionId } = props.navigation.state.params
 
-  //get the ID from the question chosen
-  //fetch one quetsions, using the ID
+  //=========== GET ONE QUESTION by ID =============
+  const res = useFetch(`${LOCAL_API_URL}/questions/challenges/${questionId}`, {})
+  if(!res.response) return <Text>loading...</Text>
 
   return (
     <>
@@ -18,16 +41,18 @@ export default (props) => {
       source={require('../assets/orange.jpg')}
       style={styles.background}>
 
-      {/* <Text>Question Page</Text> */}
+    <View style={styles.questionContainer}>
+      <Text style={styles.listItem}>{res.response[0]}</Text>
+    </View>
 
         {/* <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/> */}
         {/* <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/> */}
         {/* <Button title="Tap to see comments" onPress={() => navigate('Comments')}/> */}
 
-      <View style={styles.returnHome}>
+      {/* <View style={styles.returnHome}>
         <Button title="Home" onPress={() => navigate('Login')}/>
-       </View>
-        {/* <ModalExample /> */}
+       </View> */}
+
 
 
       <View style={styles.stopWatch}>
@@ -42,12 +67,6 @@ export default (props) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   background: {
     height: '100%',
     width: '100%',
@@ -68,5 +87,15 @@ const styles = StyleSheet.create({
   returnHome: {
     flex: 1,
     justifyContent: 'flex-end'
+  }, 
+  listItem: {
+    padding: 50, 
+    fontSize: 30
+  },
+  questionContainer: {
+    flex: 1, 
+    letterSpacing: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
