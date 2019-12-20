@@ -48,7 +48,7 @@ export default (props) => {
               </Text>
 
               <View style={styles.buttonView}>
-                <Button title="view question" onPress={() => navigate('Question')}></Button>
+                <Button title="view question" onPress={() => navigate('Question', { questionId: item.id })}></Button>
               </View>
               </>
             )
