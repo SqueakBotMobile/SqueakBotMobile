@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView} from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ImageBackground} from 'react-native';
 import ModalExample from '../components/modal';
 import StopWatch from '../components/timer2';
 
@@ -7,20 +7,27 @@ export default (props) => {
   const {navigate} = props.navigation;
   return (
     <>
-    <View style={styles.container}>
-    {/* <ImageBackground 
+    <View>
+
+    <ImageBackground 
       source={require('../assets/orange.jpg')}
-      style={styles.background}> */}
+      style={styles.background}>
+
       <Text>Question Page</Text>
-      <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/>
-      <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/>
-      {/* <Button title="Tap to Start Timer" onPress={() => console.log('starting timer')}/> */}
-      {/* <Button title="Tap to see comments" onPress={() => navigate('Comments')}/> */}
-      <Button title="Home" onPress={() => navigate('Login')}/>
-      {/* <ModalExample /> */}
+        <Button title="Tap for Hint" onPress={() => console.log('hint showing')}/>
+        <Button title="Tap for Input and Output" onPress={() => console.log('input and output')}/>
+        {/* <Button title="Tap to Start Timer" onPress={() => console.log('starting timer')}/> */}
+        {/* <Button title="Tap to see comments" onPress={() => navigate('Comments')}/> */}
+        <Button title="Home" onPress={() => navigate('Login')}/>
+        {/* <ModalExample /> */}
+
+
       <View style={styles.stopWatch}>
         <StopWatch />
       </View>
+
+      </ImageBackground>
+
     </View>
     </>
   );
@@ -32,6 +39,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  background: {
+    height: '100%',
+    width: '100%',
   },
   textStyle: {
     fontSize: 30,
@@ -47,6 +58,3 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   }
 });
-
-
-  

@@ -36,23 +36,22 @@ export default (props) => {
       style={styles.background}>
 
     <View>
-
-    <Text style={styles.title}>List of Questions</Text>
-    <FlatList 
-        keyExtractor={item => item.challenges}
-        data={res.response}
-        renderItem={({ item }) => {
-          return (
-            <>
-            <Text style={styles.listItem}>
-              {item.challenges}
-            </Text>
-            <Button title="pick this question" onPress={() => navigate('Question')}></Button>
-            </>
-          )
+      <Text style={styles.title}>List of Questions</Text>
+      <FlatList 
+          keyExtractor={item => item.challenges}
+          data={res.response}
+          renderItem={({ item }) => {
+            return (
+              <>
+              <Text style={styles.listItem}>
+                {item.challenges}
+              </Text>
+              <Button title="pick this question" onPress={() => navigate('Question')}></Button>
+              </>
+            )
+          }
         }
-      }
-    />
+      />
   </View>
 
     <Button title="View Question" onPress={() => navigate('Question')}/>
