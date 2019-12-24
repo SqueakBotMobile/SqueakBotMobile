@@ -21,6 +21,17 @@ preparation for job interviews in the tech industry. It uses AI technology to li
 question. When a user asks, "Give me a challenge", the google API will receive your request through the microphone on a 
 mobile device. Using a Node Server, it pulls a random question from a SQL database and reads it out loud.
 
+## How to use:
+- Clone both repos to your local machine.
+- `npm install` to install dependencies in each of the repos.
+- Make sure you have Postgres installed. In your terminal, enter `psql`. 
+- Create a database by enter `create database [database_name];`.
+- To populate the tables in the database, in the SqueakBotServer repo, make sure you are at the file path where the `schema.sql` file is, enter `psql -d [database_name] -f schema.sql`. 
+- Download "Expo Client" from App Store or Google Play Store. 
+- In SqueakBotServer repo, start the server by enter `npm start'.
+- In SqueakBotMobile repo, enter `npm start`.
+- Scan the QR code using your camera to try the app!
+
 ## Domain Model:
 ![domain model](./squeakbot-mobile/assets/domain_model.png)
 
